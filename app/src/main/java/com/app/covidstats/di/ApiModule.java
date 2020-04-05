@@ -2,6 +2,8 @@ package com.app.covidstats.di;
 
 import android.app.Application;
 
+import androidx.lifecycle.MutableLiveData;
+
 import com.app.covidstats.adapter.StatsAdapter;
 import com.app.covidstats.api.ApiService;
 import com.app.covidstats.api.Repository;

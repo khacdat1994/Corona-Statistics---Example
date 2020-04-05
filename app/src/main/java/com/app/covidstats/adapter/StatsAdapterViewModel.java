@@ -14,4 +14,6 @@ public class StatsAdapterViewModel extends ViewModel{
     public void setCountryStats(CountryStats countryStats) {
         this.countryStats = countryStats;
     }
+
+    //declare bind field, function....
 }
