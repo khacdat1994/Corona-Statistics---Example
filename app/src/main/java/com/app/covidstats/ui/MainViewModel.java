@@ -1,10 +1,13 @@
 package com.app.covidstats.ui;
 
+import android.util.Log;
+
 import androidx.lifecycle.ViewModel;
 
 import com.app.covidstats.adapter.StatsAdapter;
 import com.app.covidstats.api.Repository;
 import com.app.covidstats.api.Response;
+import com.google.gson.Gson;
 
 import javax.inject.Inject;
 
@@ -43,6 +46,7 @@ public class MainViewModel extends ViewModel {
         disposable.add(repository.getStats().subscribeWith(new DisposableObserver<Response>() {
             @Override
             public void onNext(Response response) {
+                Log.d("---",new Gson().toJson(response));
                 adapter.setData(response.getCountries_stat());
             }
 

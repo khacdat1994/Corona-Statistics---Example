@@ -6,26 +6,26 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.covidstats.R;
 import com.app.covidstats.api.CountryStats;
 import com.app.covidstats.databinding.ViewItemStatsBinding;
+import com.app.covidstats.ui.MainViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class StatsAdapter extends RecyclerView.Adapter<StatsAdapter.ViewHolder> {
 
-
     private ArrayList<CountryStats> mValues = new ArrayList<>();
 
     public StatsAdapter() {
     }
 
-    public void setData(List<CountryStats> user) {
-        mValues.clear();
-        mValues.addAll(user);
+    public void setData(List<CountryStats> countryStats) {
+        mValues.addAll(countryStats);
         notifyDataSetChanged();
     }
 
@@ -39,14 +39,11 @@ public class StatsAdapter extends RecyclerView.Adapter<StatsAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        holder.viewItemUserBinding.getViewModel().setCountryStats(mValues.get(position));
 
-        holder.viewItemUserBinding.getRoot().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        StatsAdapterViewModel viewModel = new StatsAdapterViewModel();
+        viewModel.setCountryStats(mValues.get(position));
 
-            }
-        });
+        holder.viewItemStatsBinding.setViewModel(viewModel);
     }
 
     @Override
@@ -57,12 +54,11 @@ public class StatsAdapter extends RecyclerView.Adapter<StatsAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private ViewItemStatsBinding viewItemUserBinding;
+        private ViewItemStatsBinding viewItemStatsBinding;
 
-        public ViewHolder(ViewItemStatsBinding _viewItemUserBinding) {
-            super(_viewItemUserBinding.getRoot());
-            this.viewItemUserBinding = _viewItemUserBinding;
-            this.viewItemUserBinding.setViewModel(new StatsAdapterViewModel());
+        public ViewHolder(ViewItemStatsBinding viewItemStatsBinding) {
+            super(viewItemStatsBinding.getRoot());
+            this.viewItemStatsBinding = viewItemStatsBinding;
         }
     }
 }

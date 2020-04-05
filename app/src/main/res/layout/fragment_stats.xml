@@ -17,8 +17,8 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list"
+            android:adapter="@{viewModel.adapter}"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:adapter="@{viewModel.adapter}"></androidx.recyclerview.widget.RecyclerView>
+            android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
