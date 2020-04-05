@@ -23,7 +23,7 @@ public class StatsAdapter extends RecyclerView.Adapter<StatsAdapter.ViewHolder> 
     public StatsAdapter() {
     }
 
-    public void setUser(List<CountryStats> user) {
+    public void setData(List<CountryStats> user) {
         mValues.clear();
         mValues.addAll(user);
         notifyDataSetChanged();

@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
     @Inject
     Repository repository;
 
-    @Inject
-    CompositeDisposable disposable;
+//    @Inject
+//    CompositeDisposable disposable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,37 +45,39 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //
+//        FloatingActionButton fab = findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //
+//
+//                //
+//
+//            }
+//        });
 
-                //
-
-            }
-        });
 
 
-        disposable.add(
-                repository.getStats()
-                        .subscribeWith(new DisposableObserver<Response>() {
-                            @Override
-                            public void onNext(Response response) {
-                                Log.d("---", new Gson().toJson(response));
-                            }
 
-                            @Override
-                            public void onError(Throwable e) {
-
-                            }
-
-                            @Override
-                            public void onComplete() {
-
-                            }
-                        })
-        );
+//        disposable.add(
+//                repository.getStats()
+//                        .subscribeWith(new DisposableObserver<Response>() {
+//                            @Override
+//                            public void onNext(Response response) {
+//                                Log.d("---", new Gson().toJson(response));
+//                            }
+//
+//                            @Override
+//                            public void onError(Throwable e) {
+//
+//                            }
+//
+//                            @Override
+//                            public void onComplete() {
+//
+//                            }
+//                        })
+//        );
 
 
     }

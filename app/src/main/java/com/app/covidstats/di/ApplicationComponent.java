@@ -1,6 +1,6 @@
 package com.app.covidstats.di;
 import com.app.covidstats.App;
-import com.app.covidstats.ui.FirstFragment;
+import com.app.covidstats.ui.StatsFragment;
 import com.app.covidstats.ui.MainActivity;
 
 import javax.inject.Singleton;
@@ -19,5 +19,5 @@ public interface ApplicationComponent {
 
     void inject(MainActivity activity);
 
-    void inject(FirstFragment fragment);
+    void inject(StatsFragment fragment);
 }
