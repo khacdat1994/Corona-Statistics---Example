@@ -1,5 +1,7 @@
 package com.app.covidstats.di;
+
 import com.app.covidstats.App;
+import com.app.covidstats.adapter.StatsAdapter;
 import com.app.covidstats.ui.StatsFragment;
 import com.app.covidstats.ui.MainActivity;
 

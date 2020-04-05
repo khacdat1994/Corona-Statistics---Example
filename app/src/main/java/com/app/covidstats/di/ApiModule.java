@@ -2,7 +2,9 @@ package com.app.covidstats.di;
 
 import android.app.Application;
 
+import com.app.covidstats.adapter.StatsAdapter;
 import com.app.covidstats.api.ApiService;
+import com.app.covidstats.api.Repository;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -141,4 +143,10 @@ public class ApiModule {
     CompositeDisposable getcoDisposable() {
         return new CompositeDisposable();
     }
+
+//    @Provides
+//    @Singleton
+//    StatsAdapter getAdapter() {
+//        return new StatsAdapter();
+//    }
 }
