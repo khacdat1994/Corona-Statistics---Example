@@ -1,15 +1,34 @@
 package com.app.covidstats.api;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class CountryStats {
+
+    @PrimaryKey
+    @ColumnInfo(name = "country_name")
+    @NonNull
     private String country_name;
+    @ColumnInfo(name = "cases")
     private String cases;
+    @ColumnInfo(name = "deaths")
     private String deaths;
+    @ColumnInfo(name = "region")
     private String region;
+    @ColumnInfo(name = "total_recovered")
     private String total_recovered;
+    @ColumnInfo(name = "new_deaths")
     private String new_deaths;
+    @ColumnInfo(name = "new_cases")
     private String new_cases;
+    @ColumnInfo(name = "serious_critical")
     private String serious_critical;
+    @ColumnInfo(name = "active_cases")
     private String active_cases;
+    @ColumnInfo(name = "total_cases_per_1m_population")
     private String total_cases_per_1m_population;
 
     public CountryStats() {

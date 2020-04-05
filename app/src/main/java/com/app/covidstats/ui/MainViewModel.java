@@ -68,12 +68,18 @@ public class MainViewModel extends ViewModel {
                 Log.d("---", new Gson().toJson(response));
                 adapter.setData(response.getCountries_stat());
                 isLoading.set(false);
+                //save to db
+                if (response.getCountries_stat().size() > 0) {
+                    repository.saveDataToDB(response.getCountries_stat());
+                }
             }
 
             @Override
             public void onError(Throwable e) {
                 toasMessage.setValue(e.getLocalizedMessage());
                 isLoading.set(false);
+                //load from db
+                adapter.setData(repository.getDataFromDB());
             }
 
             @Override

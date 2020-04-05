@@ -62,7 +62,7 @@ public class StatsFragment extends Fragment {
         mainViewModel.getToasMessage().observe(this.getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(String s) {
-                Toast.makeText(getActivity(), s, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), s + " " + " data load offline!!", Toast.LENGTH_SHORT).show();
             }
         });
 

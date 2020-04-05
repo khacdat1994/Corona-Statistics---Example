@@ -11,7 +11,7 @@ import dagger.Component;
 
 @Component(modules = {
         ApiModule.class,
-//        DbModule.class,
+        DbModule.class,
         ApplicationModule.class,
         ViewModelModule.class})
 @Singleton
