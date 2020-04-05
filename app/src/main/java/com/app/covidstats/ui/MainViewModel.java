@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
+import androidx.databinding.ObservableBoolean;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -24,6 +25,8 @@ public class MainViewModel extends ViewModel {
     private StatsAdapter adapter;
 
     private MutableLiveData<String> toasMessage = new MutableLiveData<>();
+
+    public ObservableBoolean isLoading = new ObservableBoolean();
 
     public MutableLiveData<String> getToasMessage() {
         return toasMessage;
@@ -55,6 +58,7 @@ public class MainViewModel extends ViewModel {
     @Inject
     public MainViewModel(Repository repository) {
         this.repository = repository;
+        isLoading.set(true);
     }
 
     public void getStats() {
@@ -63,11 +67,13 @@ public class MainViewModel extends ViewModel {
             public void onNext(Response response) {
                 Log.d("---", new Gson().toJson(response));
                 adapter.setData(response.getCountries_stat());
+                isLoading.set(false);
             }
 
             @Override
             public void onError(Throwable e) {
                 toasMessage.setValue(e.getLocalizedMessage());
+                isLoading.set(false);
             }
 
             @Override
@@ -75,6 +81,11 @@ public class MainViewModel extends ViewModel {
 
             }
         }));
+    }
+
+    public void onRefresh() {
+        isLoading.set(true);
+        getStats();
     }
 
     @Override

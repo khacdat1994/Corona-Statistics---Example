@@ -18,6 +18,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.app.covidstats.App;
 import com.app.covidstats.R;
@@ -33,6 +34,8 @@ public class StatsFragment extends Fragment {
     private RecyclerView recyclerView;
     private StatsAdapter adapter;
 
+    private SwipeRefreshLayout swipeRefreshLayout;
+
     @Inject
     ViewModelFactory viewModelFactory;
 
@@ -46,6 +49,7 @@ public class StatsFragment extends Fragment {
 
         recyclerView = binding.list;
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        swipeRefreshLayout = binding.refresh;
 
         mainViewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel.class);
 
@@ -61,6 +65,13 @@ public class StatsFragment extends Fragment {
                 Toast.makeText(getActivity(), s, Toast.LENGTH_SHORT).show();
             }
         });
+
+//        mainViewModel.getIsLoading().observe(this.getViewLifecycleOwner(), new Observer<Boolean>() {
+//            @Override
+//            public void onChanged(Boolean s) {
+//                swipeRefreshLayout.setRefreshing(s);
+//            }
+//        });
 
         return binding.getRoot();
     }
