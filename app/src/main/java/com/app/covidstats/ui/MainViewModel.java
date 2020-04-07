@@ -13,14 +13,16 @@ import androidx.lifecycle.ViewModel;
 import com.app.covidstats.adapter.StatsAdapter;
 import com.app.covidstats.api.Repository;
 import com.app.covidstats.api.Response;
+import com.app.covidstats.base.BaseViewModel;
 import com.google.gson.Gson;
 
 import javax.inject.Inject;
 
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.observers.DisposableObserver;
 
-public class MainViewModel extends ViewModel {
+public class MainViewModel extends BaseViewModel {
     private Repository repository;
     private StatsAdapter adapter;
 
@@ -35,9 +37,6 @@ public class MainViewModel extends ViewModel {
     public void setToasMessage(MutableLiveData<String> toasMessage) {
         this.toasMessage = toasMessage;
     }
-
-    @Inject
-    CompositeDisposable disposable;
 
     public StatsAdapter getAdapter() {
         return adapter;
@@ -62,7 +61,7 @@ public class MainViewModel extends ViewModel {
     }
 
     public void getStats() {
-        disposable.add(repository.getStats().subscribeWith(new DisposableObserver<Response>() {
+        Disposable disposable = repository.getStats().subscribeWith(new DisposableObserver<Response>() {
             @Override
             public void onNext(Response response) {
                 Log.d("---", new Gson().toJson(response));
@@ -86,17 +85,12 @@ public class MainViewModel extends ViewModel {
             public void onComplete() {
 
             }
-        }));
+        });
+        launchDisposable(disposable);
     }
 
     public void onRefresh() {
         isLoading.set(true);
         getStats();
-    }
-
-    @Override
-    protected void onCleared() {
-        super.onCleared();
-        disposable.clear();
     }
 }

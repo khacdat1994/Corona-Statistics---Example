@@ -140,11 +140,11 @@ public class ApiModule {
 //                .build().create(ApiService.class);
 //    }
 
-    @Provides
-    @Singleton
-    CompositeDisposable getcoDisposable() {
-        return new CompositeDisposable();
-    }
+//    @Provides
+//    @Singleton
+//    CompositeDisposable getcoDisposable() {
+//        return new CompositeDisposable();
+//    }
 
 //    @Provides
 //    @Singleton

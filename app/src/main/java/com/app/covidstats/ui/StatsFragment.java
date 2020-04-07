@@ -23,21 +23,19 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.app.covidstats.App;
 import com.app.covidstats.R;
 import com.app.covidstats.adapter.StatsAdapter;
+import com.app.covidstats.base.BaseFragment;
 import com.app.covidstats.databinding.FragmentStatsBinding;
 import com.app.covidstats.di.ViewModelFactory;
 
 import javax.inject.Inject;
 
-public class StatsFragment extends Fragment {
+public class StatsFragment extends BaseFragment {
 
     private MainViewModel mainViewModel;
     private RecyclerView recyclerView;
     private StatsAdapter adapter;
 
     private SwipeRefreshLayout swipeRefreshLayout;
-
-    @Inject
-    ViewModelFactory viewModelFactory;
 
     @Override
     public View onCreateView(
@@ -80,11 +78,5 @@ public class StatsFragment extends Fragment {
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
 
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        App.component.inject(this);
     }
 }
