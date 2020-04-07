@@ -1,18 +1,16 @@
 package com.app.covidstats.di;
 
 import com.app.covidstats.App;
-import com.app.covidstats.adapter.StatsAdapter;
 import com.app.covidstats.base.BaseActivity;
 import com.app.covidstats.base.BaseFragment;
-import com.app.covidstats.ui.StatsFragment;
-import com.app.covidstats.ui.MainActivity;
 
 import javax.inject.Singleton;
 
 import dagger.Component;
 
 @Component(modules = {
-        ApiModule.class,
+        //ApiModule.class,
+        CrawlerModule.class,
         DbModule.class,
         ApplicationModule.class,
         ViewModelModule.class})

@@ -8,6 +8,7 @@ import androidx.multidex.MultiDexApplication;
 import com.app.covidstats.di.ApiModule;
 import com.app.covidstats.di.ApplicationComponent;
 import com.app.covidstats.di.ApplicationModule;
+import com.app.covidstats.di.CrawlerModule;
 import com.app.covidstats.di.DaggerApplicationComponent;
 import com.app.covidstats.di.DbModule;
 
@@ -28,7 +29,8 @@ public class App extends MultiDexApplication {
         component =
                 DaggerApplicationComponent
                         .builder()
-                        .apiModule(new ApiModule())
+                        .crawlerModule(new CrawlerModule())
+                        //.apiModule(new ApiModule())
                         .applicationModule(new ApplicationModule(this))
                         .dbModule(new DbModule())
                         .build();

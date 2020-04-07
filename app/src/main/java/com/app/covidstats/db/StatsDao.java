@@ -5,9 +5,8 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
-import com.app.covidstats.api.CountryStats;
+import com.app.covidstats.api.model.CountryStats;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Dao

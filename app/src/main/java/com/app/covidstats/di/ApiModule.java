@@ -2,11 +2,7 @@ package com.app.covidstats.di;
 
 import android.app.Application;
 
-import androidx.lifecycle.MutableLiveData;
-
-import com.app.covidstats.adapter.StatsAdapter;
 import com.app.covidstats.api.ApiService;
-import com.app.covidstats.api.Repository;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -20,7 +16,6 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import io.reactivex.disposables.CompositeDisposable;
 import okhttp3.Cache;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -138,17 +133,5 @@ public class ApiModule {
 //                .baseUrl("https://coronavirus-monitor.p.rapidapi.com/")
 //                .addConverterFactory(GsonConverterFactory.create())
 //                .build().create(ApiService.class);
-//    }
-
-//    @Provides
-//    @Singleton
-//    CompositeDisposable getcoDisposable() {
-//        return new CompositeDisposable();
-//    }
-
-//    @Provides
-//    @Singleton
-//    StatsAdapter getAdapter() {
-//        return new StatsAdapter();
 //    }
 }

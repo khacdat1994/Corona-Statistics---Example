@@ -1,4 +1,4 @@
-package com.app.covidstats.api;
+package com.app.covidstats.api.model;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;

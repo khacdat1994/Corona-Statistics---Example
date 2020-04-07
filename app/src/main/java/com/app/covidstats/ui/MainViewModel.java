@@ -1,24 +1,18 @@
 package com.app.covidstats.ui;
 
-import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
-import androidx.databinding.BaseObservable;
-import androidx.databinding.Bindable;
 import androidx.databinding.ObservableBoolean;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 import com.app.covidstats.adapter.StatsAdapter;
 import com.app.covidstats.api.Repository;
-import com.app.covidstats.api.Response;
+import com.app.covidstats.api.response.Response;
 import com.app.covidstats.base.BaseViewModel;
 import com.google.gson.Gson;
 
 import javax.inject.Inject;
 
-import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.observers.DisposableObserver;
 

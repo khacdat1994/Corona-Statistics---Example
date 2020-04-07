@@ -2,7 +2,7 @@ package com.app.covidstats.adapter;
 
 import androidx.lifecycle.ViewModel;
 
-import com.app.covidstats.api.CountryStats;
+import com.app.covidstats.api.model.CountryStats;
 
 public class StatsAdapterViewModel extends ViewModel{
     private CountryStats countryStats;

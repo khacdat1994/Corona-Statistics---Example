@@ -1,14 +1,10 @@
 package com.app.covidstats.api;
 
-import android.util.Log;
-
-import androidx.lifecycle.MutableLiveData;
-
+import com.app.covidstats.api.model.CountryStats;
+import com.app.covidstats.api.response.Response;
 import com.app.covidstats.db.StatsDao;
-import com.google.gson.Gson;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -16,12 +12,11 @@ import javax.inject.Singleton;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
-import retrofit2.Call;
-import retrofit2.Callback;
 
 @Singleton
 public class Repository {
     private static final String TAG = "Repository";
+    //
     private ApiService apiService;
     private StatsDao statsDao;
 

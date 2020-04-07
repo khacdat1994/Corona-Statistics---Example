@@ -1,4 +1,6 @@
-package com.app.covidstats.api;
+package com.app.covidstats.api.response;
+
+import com.app.covidstats.api.model.CountryStats;
 
 import java.util.ArrayList;
 

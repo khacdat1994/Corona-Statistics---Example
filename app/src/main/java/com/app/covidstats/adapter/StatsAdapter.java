@@ -1,18 +1,14 @@
 package com.app.covidstats.adapter;
 
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.covidstats.R;
-import com.app.covidstats.api.CountryStats;
+import com.app.covidstats.api.model.CountryStats;
 import com.app.covidstats.databinding.ViewItemStatsBinding;
-import com.app.covidstats.ui.MainViewModel;
 
 import java.util.ArrayList;
 import java.util.List;

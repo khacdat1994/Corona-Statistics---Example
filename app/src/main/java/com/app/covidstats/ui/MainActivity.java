@@ -2,41 +2,23 @@ package com.app.covidstats.ui;
 
 import android.os.Bundle;
 
-import com.app.covidstats.App;
 import com.app.covidstats.R;
-import com.app.covidstats.api.ApiService;
-import com.app.covidstats.api.CountryStats;
-import com.app.covidstats.api.Repository;
-import com.app.covidstats.api.Response;
 import com.app.covidstats.base.BaseActivity;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.gson.Gson;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import java.util.List;
-
-import javax.inject.Inject;
-
-import io.reactivex.Observer;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.observers.DisposableObserver;
 
 public class MainActivity extends BaseActivity {
 
 //    @Inject
 //    Repository repository;
 
-//    @Inject
-//    CompositeDisposable disposable;
+    //    @Inject
+    CompositeDisposable disposable = new CompositeDisposable();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +39,24 @@ public class MainActivity extends BaseActivity {
 //        });
 
 
+//        disposable.add(
+//                crawler.getStats().subscribeWith(new DisposableObserver<Response>() {
+//                    @Override
+//                    public void onNext(Response response) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onComplete() {
+//
+//                    }
+//                })
+//        );
 
 
 //        disposable.add(

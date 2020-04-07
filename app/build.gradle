@@ -90,4 +90,7 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
 
+    implementation 'org.jsoup:jsoup:1.13.1'
+
+
 }
